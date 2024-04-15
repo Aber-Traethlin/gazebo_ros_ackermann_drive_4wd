@@ -217,18 +217,18 @@ void GazeboRosAckermannDrive4WD::Load(gazebo::physics::ModelPtr _model, sdf::Ele
   // Get QoS profiles
   const gazebo_ros::QoS & qos = impl_->ros_node_->get_qos();
 
-  impl_->joints_.resize(7);
+  impl_->joints_.resize(6);
 
-  auto steering_wheel_joint =
-    _sdf->Get<std::string>("steering_wheel_joint", "steering_wheel_joint").first;
-  impl_->joints_[GazeboRosAckermannDrive4WDPrivate::STEER_WHEEL] =
-    _model->GetJoint(steering_wheel_joint);
-  if (!impl_->joints_[GazeboRosAckermannDrive4WDPrivate::STEER_WHEEL]) {
-    RCLCPP_WARN(
-      impl_->ros_node_->get_logger(),
-      "Steering wheel joint [%s] not found.", steering_wheel_joint.c_str());
-    impl_->joints_.resize(6);
-  }
+//   auto steering_wheel_joint =
+//     _sdf->Get<std::string>("steering_wheel_joint", "steering_wheel_joint").first;
+//   impl_->joints_[GazeboRosAckermannDrive4WDPrivate::STEER_WHEEL] =
+//     _model->GetJoint(steering_wheel_joint);
+//   if (!impl_->joints_[GazeboRosAckermannDrive4WDPrivate::STEER_WHEEL]) {
+//     RCLCPP_WARN(
+//       impl_->ros_node_->get_logger(),
+//       "Steering wheel joint [%s] not found.", steering_wheel_joint.c_str());
+//     impl_->joints_.resize(6);
+//   }
 
   auto front_right_joint = _sdf->Get<std::string>("front_right_joint", "front_right_joint").first;
   impl_->joints_[GazeboRosAckermannDrive4WDPrivate::FRONT_RIGHT] = _model->GetJoint(front_right_joint);
