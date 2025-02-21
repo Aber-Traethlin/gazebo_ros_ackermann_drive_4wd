@@ -631,16 +631,22 @@ void GazeboRosAckermannDrive4WDPrivate::PublishOdometryMsg(const gazebo::common:
   // Set covariance
   odom_.pose.covariance[0] = covariance_[0];
   odom_.pose.covariance[7] = covariance_[1];
-  odom_.pose.covariance[14] = 1000000000000.0;
-  odom_.pose.covariance[21] = 1000000000000.0;
-  odom_.pose.covariance[28] = 1000000000000.0;
+  // odom_.pose.covariance[14] = 1000000000000.0;
+  // odom_.pose.covariance[21] = 1000000000000.0;
+  // odom_.pose.covariance[28] = 1000000000000.0;
+  odom_.pose.covariance[14] = 0.01;
+  odom_.pose.covariance[21] = 0.01;
+  odom_.pose.covariance[28] = 0.01;
   odom_.pose.covariance[35] = covariance_[2];
 
   odom_.twist.covariance[0] = covariance_[0];
   odom_.twist.covariance[7] = covariance_[1];
-  odom_.twist.covariance[14] = 1000000000000.0;
-  odom_.twist.covariance[21] = 1000000000000.0;
-  odom_.twist.covariance[28] = 1000000000000.0;
+  // odom_.twist.covariance[14] = 1000000000000.0;
+  // odom_.twist.covariance[21] = 1000000000000.0;
+  // odom_.twist.covariance[28] = 1000000000000.0;
+  odom_.twist.covariance[14] = 0.01;
+  odom_.twist.covariance[21] = 0.01;
+  odom_.twist.covariance[28] = 0.01;
   odom_.twist.covariance[35] = covariance_[2];
 
   // Set header
